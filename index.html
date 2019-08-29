@@ -78,11 +78,15 @@
           const { startDate, endDate, userVacations } = this.state;
           // this.props.create({ startDate: this.state.startDate }, { endDate: this.state.endDate })
             console.log(typeof startDate, typeof endDate)
-            const startMoment = moment(startDate, 'DD/MM/YYYY');
-            const endMoment = moment(endDate, 'DD/MM/YYYY');
+            let startMoment = moment(startDate, 'DD/MM/YYYY');
+            let endMoment = moment(endDate, 'DD/MM/YYYY');
+
+            //startMoment.format('DDDD/MM/YYYY')
+            //endMoment.format('DDDD/MM/YYYY')
 
             const dateDiff = endMoment.diff(startMoment, 'days')
-            console.log("dateDiff=", dateDiff)
+            //console.log("startMoment=", startMoment)
+            //console.log("dateDiff=", dateDiff)
 
             // .then(()=> this.props.history.push('/notes'))
             // .catch( ex => this.setState({ error: ex.response.data.message }));
