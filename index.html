@@ -60,24 +60,34 @@
         constructor() {
           super();
             this.state = {
-
+              userVacations: []
           }
         }
 
 
         async componentDidMount() {
-          //const x = ((await axios.get(`${API}/`)).data)
 
-          //this.setState({  })
+          console.log("CD mount", userId)
+
+          const userVacations = ((await axios.get(`${API}/users/${userId}/vacations`)).data)
+
+          this.setState({ userVacations })
         }
 
 
         render() {
-          //const {  } = this.state;
+          const { userVacations } = this.state;
 
 
           return (
-          <h1> testing app setup</h1>
+            <div>
+          <h1> Acme Vacation Planner</h1>
+          <form onSubmit = { ev => ev.preventDefault() }>
+              <input placeholder='Start Date' />
+              <input placeholder='End Date' />
+              <button>Create Vaction</button>
+            </form>
+          </div>
           )
         }
       }
