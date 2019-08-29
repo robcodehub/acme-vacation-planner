@@ -77,7 +77,13 @@
         create(){
           const { startDate, endDate, userVacations } = this.state;
           // this.props.create({ startDate: this.state.startDate }, { endDate: this.state.endDate })
-            console.log(startDate, endDate)
+            console.log(typeof startDate, typeof endDate)
+            const startMoment = moment(startDate, 'DD/MM/YYYY');
+            const endMoment = moment(endDate, 'DD/MM/YYYY');
+
+            const dateDiff = endMoment.diff(startMoment, 'days')
+            console.log("dateDiff=", dateDiff)
+
             // .then(()=> this.props.history.push('/notes'))
             // .catch( ex => this.setState({ error: ex.response.data.message }));
         }
@@ -92,7 +98,7 @@
           <form onSubmit = { ev => ev.preventDefault() }>
             <input value={ startDate } placeholder='start date' onChange={ (ev)=> this.setState({ startDate: ev.target.value }) }/>
             <input value={ endDate } placeholder='end date' onChange={ (ev)=> this.setState({ endDate: ev.target.value }) }/>
-              <button onClick={ create }>Create Vaction</button>
+              <button onClick={ create }>Create Vacation</button>
 
             </form>
           </div>
