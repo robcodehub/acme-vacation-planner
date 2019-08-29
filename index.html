@@ -81,15 +81,20 @@
             let startMoment = moment(startDate, 'DD/MM/YYYY');
             let endMoment = moment(endDate, 'DD/MM/YYYY');
 
-            //startMoment.format('DDDD/MM/YYYY')
-            //endMoment.format('DDDD/MM/YYYY')
+            const startD = startMoment.format('dddd DD/MM/YYYY')
+            const endD = endMoment.format('dddd DD/MM/YYYY')
 
             const dateDiff = endMoment.diff(startMoment, 'days')
-            //console.log("startMoment=", startMoment)
-            //console.log("dateDiff=", dateDiff)
+            const vacation = `<p>${startD} <br/> to <br/> ${endD}<br/>${dateDiff}`
+            // console.log("startMoment=", startMoment)
+            // console.log("dateDiff=", dateDiff)
 
             // .then(()=> this.props.history.push('/notes'))
             // .catch( ex => this.setState({ error: ex.response.data.message }));
+          return (
+
+
+          )
         }
 
         render() {
