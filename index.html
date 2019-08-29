@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+      <meta charset="UTF-8">
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-router-dom/5.0.1/react-router-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+
+    <style>
+      body {
+        font-family: verdana;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-around;
+      }
+    </style>
+  </head>
+
+  <body>
+
+      <div id='root'>
+
+        </div>
+
+        <script type='text/babel'>
+          const { render } = ReactDOM;
+          const { Component } = React;
+          const { NavLink, Route, Switch, Redirect, Link } = ReactRouterDOM;
+
+          const API = 'https://acme-users-api-rev.herokuapp.com/api';
+
+
+
+
+        class App extends Component {
+        constructor() {
+          super();
+            this.state = {
+
+          }
+        }
+
+
+        async componentDidMount() {
+          //const x = ((await axios.get(`${API}/`)).data)
+
+          //this.setState({  })
+        }
+
+
+        render() {
+          //const {  } = this.state;
+
+
+          return (
+          <h1> testing app setup</h1>
+          )
+        }
+      }
+
+
+      render(<App />, root)
+    </script>
+
+
+</body>
+
+</html>
