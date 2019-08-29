@@ -60,32 +60,40 @@
         constructor() {
           super();
             this.state = {
+              startDate: '',
+              endDate: '',
               userVacations: []
           }
+          this.create = this.create.bind(this);
         }
 
 
         async componentDidMount() {
-
-          console.log("CD mount", userId)
-
-          const userVacations = ((await axios.get(`${API}/users/${userId}/vacations`)).data)
-
+          const user = await fetchUser()
+          const userVacations = ((await axios.get(`${API}/users/${user.id}/vacations`)).data)
           this.setState({ userVacations })
         }
 
+        create(){
+          const { startDate, endDate, userVacations } = this.state;
+          // this.props.create({ startDate: this.state.startDate }, { endDate: this.state.endDate })
+            console.log(startDate, endDate)
+            // .then(()=> this.props.history.push('/notes'))
+            // .catch( ex => this.setState({ error: ex.response.data.message }));
+        }
 
         render() {
-          const { userVacations } = this.state;
-
+          const { startDate, endDate, userVacations } = this.state;
+          const { create } = this;
 
           return (
             <div>
           <h1> Acme Vacation Planner</h1>
           <form onSubmit = { ev => ev.preventDefault() }>
-              <input placeholder='Start Date' />
-              <input placeholder='End Date' />
-              <button>Create Vaction</button>
+            <input value={ startDate } placeholder='start date' onChange={ (ev)=> this.setState({ startDate: ev.target.value }) }/>
+            <input value={ endDate } placeholder='end date' onChange={ (ev)=> this.setState({ endDate: ev.target.value }) }/>
+              <button onClick={ create }>Create Vaction</button>
+
             </form>
           </div>
           )
